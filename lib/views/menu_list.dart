@@ -52,7 +52,7 @@ class _MenuWidgetState extends State<MenuWidget> {
             );
           } else {
             return const Center(
-              child: Text('Erro inesperado'),
+              child: CircularProgressIndicator(),
             );
           }
         },

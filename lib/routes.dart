@@ -5,12 +5,11 @@ import 'package:untitled/views/product.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
 
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => MenuWidget());
-      case '/food':
+      case '/product':
         return MaterialPageRoute(builder: (_) => ProductWidget());
       case '/cart':
         return MaterialPageRoute(builder: (_) => CartWidget());

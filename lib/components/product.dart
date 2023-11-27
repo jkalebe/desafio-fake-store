@@ -18,11 +18,11 @@ class ProductTile extends StatelessWidget {
           height: 50,
           fit: BoxFit.cover,
         ),
-        title: Text(product.title),
-        subtitle: Text('\$${product.price}'),
+        title: Text(product.title, maxLines: 2, overflow: TextOverflow.ellipsis,),
+        subtitle: Text('\$${product.price}',),
         onTap: () {
           appState.currentProduct = product;
-          Navigator.of(context).pushNamed('/food');
+          Navigator.of(context).pushNamed('/product');
         },
       ),
     );

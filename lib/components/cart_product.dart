@@ -26,7 +26,7 @@ class _CartProductWidgetState extends State<CartProductWidget> {
     return Card(
       child: ListTile(
         leading: Image.network(product.image, width: 50, height: 50),
-        title: Text(product.title),
+        title: Text(product.title, maxLines: 2, overflow: TextOverflow.ellipsis,),
         subtitle: Text('\$ ${product.price.toStringAsFixed(2)}'),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
@@ -66,7 +66,7 @@ class _CartProductWidgetState extends State<CartProductWidget> {
 
   onRemove(CartProduct cartProduct, AppState appState) {
     CartProduct? cp = appState.cart.firstWhereOrNull((cp) => cp.product.id == cartProduct.product.id);
-    if(cp != null){
+    if(cp != null && cp.quantity > 1){
       cp.quantity--;
       appState.update();
     }

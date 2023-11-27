@@ -26,9 +26,9 @@ class _CartWidgetState extends State<CartWidget> {
         ),
         bottomNavigationBar: Container(
           width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(15.0),
                 topRight: Radius.circular(15.0)),
             boxShadow: [
@@ -51,7 +51,7 @@ class _CartWidgetState extends State<CartWidget> {
                     ),
                     Text(
                       '\$ ${appState.cartTotal.toStringAsFixed(2)}',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
                     )
                   ],
                 ),
@@ -59,9 +59,9 @@ class _CartWidgetState extends State<CartWidget> {
               ElevatedButton(
                 onPressed: () {},
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.70,
-                  child: Center(
-                    child: const Text(
+                  width: MediaQuery.of(context).size.width * 0.80,
+                  child: const Center(
+                    child: Text(
                       'Finalizar compra',
                       style: TextStyle(fontSize: 18),
                     ),
@@ -80,7 +80,7 @@ class _CartWidgetState extends State<CartWidget> {
                   );
                 },
               )
-            : Center(
+            : const Center(
                 child: Text("Carrinho vazio!"),
               ),
       );
