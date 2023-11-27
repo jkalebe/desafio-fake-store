@@ -1,5 +1,5 @@
 # Fake Store
-
+Versão do Flutter: 3.13.2
 ## 1. Clone o Repositório do Projeto (Se Aplicável)
 Se o projeto estiver hospedado em um repositório (como GitHub, GitLab, etc.), você deve cloná-lo para sua máquina local. Use o comando:
 
@@ -23,3 +23,8 @@ Agora você pode executar o aplicativo com o comando:
 
 ```flutter run```
 Este comando compila o aplicativo e o inicia no emulador ou dispositivo conectado.
+
+# Bibliotecas utilizadas<br>
+http-> para chamadas de endpoint.<br>
+provider -> Usei para gerenciamento de estado.<br>
+get -> usei para criação de rota.<br>
