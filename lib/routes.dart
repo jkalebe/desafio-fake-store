@@ -25,7 +25,7 @@ class RouteGenerator {
           appBar: AppBar(
             title: Text(name),
           ),
-          body: Center(
+          body: const Center(
             child: Text('Você não devia ter chegado aqui.'),
           ),
         );
