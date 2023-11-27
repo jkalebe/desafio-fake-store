@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:untitled/helpers/state.dart';
+import 'package:untitled/models/cart_product.dart';
+import 'package:untitled/models/product.dart';
+
+import '../models/app_state.dart';
 
 class ProductWidget extends StatefulWidget {
   const ProductWidget({super.key});
@@ -33,7 +38,7 @@ class _ProductWidgetState extends State<ProductWidget> {
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
         child: ElevatedButton(
           onPressed: () {
-            appState.addToCart(product);
+            addToCart(product, appState.cart, appState);
             Navigator.of(context).pushNamed('/cart');
           },
           child: const Text('Adicionar ao Carrinho'),
@@ -81,5 +86,15 @@ class _ProductWidgetState extends State<ProductWidget> {
         ),
       ),
     );
+  }
+
+  void addToCart(Product product, List<CartProduct> cart, AppState appState) {
+    CartProduct? cartProduct = cart.firstWhereOrNull((cp) => cp.product.id == product.id);
+    if(cartProduct != null) {
+      cartProduct.quantity ++;
+      appState.update();
+    } else {
+      appState.addToCart(CartProduct(product: product));
+    }
   }
 }

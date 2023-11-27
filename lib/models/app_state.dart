@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:untitled/models/cart_product.dart';
 import 'package:untitled/models/product.dart';
 
 import '../network/network_helper.dart';
@@ -6,7 +7,7 @@ import '../network/network_helper.dart';
 class AppState extends ChangeNotifier {
   List<Product>? _products;
   Product? _currentProduct;
-  final List<Product> _cart = [];
+  final List<CartProduct> _cart = [];
 
   // Getter para produtos
   List<Product>? get products => _products;
@@ -27,16 +28,20 @@ class AppState extends ChangeNotifier {
   }
 
   // Getter para o carrinho
-  List<Product> get cart => _cart;
+  List<CartProduct> get cart => _cart;
 
   // Adicionar ao carrinho
-  void addToCart(Product product) {
+  void addToCart(CartProduct product) {
     _cart.add(product);
     notifyListeners();
   }
 
+  void update(){
+    notifyListeners();
+  }
+
   // Remover do carrinho
-  void removeFromCart(Product product) {
+  void removeFromCart(CartProduct product) {
     _cart.remove(product);
     notifyListeners();
   }
@@ -49,7 +54,7 @@ class AppState extends ChangeNotifier {
 
   // Calcular o total do carrinho
   double get total {
-    return _cart.fold(0.0, (total, current) => total + current.price);
+    return _cart.fold(0.0, (total, current) => total + current.product.price);
   }
 
   Future<void> fetchProducts() async {
