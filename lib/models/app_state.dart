@@ -53,8 +53,8 @@ class AppState extends ChangeNotifier {
   }
 
   // Calcular o total do carrinho
-  double get total {
-    return _cart.fold(0.0, (total, current) => total + current.product.price);
+  double get cartTotal {
+    return _cart.fold(0.0, (total, current) => total + (current.product.price * current.quantity));
   }
 
   Future<void> fetchProducts() async {

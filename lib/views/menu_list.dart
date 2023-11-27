@@ -22,7 +22,7 @@ class _MenuWidgetState extends State<MenuWidget> {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {Navigator.of(context).pushNamed('/cart');},
               icon: const Icon(
                 Icons.shopping_cart,
                 color: Colors.white,
@@ -40,7 +40,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                 shrinkWrap: true,
                 primary: false,
                 separatorBuilder: (context, index) {
-                  return SizedBox(
+                  return const SizedBox(
                     height: 5,
                   );
                 },
