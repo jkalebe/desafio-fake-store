@@ -50,7 +50,7 @@ class _CartWidgetState extends State<CartWidget> {
                       style: TextStyle(color: Colors.black, fontSize: 18),
                     ),
                     Text(
-                      '\$ ${appState.cartTotal}',
+                      '\$ ${appState.cartTotal.toStringAsFixed(2)}',
                       style: TextStyle(color: Colors.black, fontSize: 18),
                     )
                   ],
