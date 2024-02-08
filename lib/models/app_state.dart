@@ -5,6 +5,7 @@ import 'package:untitled/models/product.dart';
 import '../network/network_helper.dart';
 
 class AppState extends ChangeNotifier {
+  bool isAppInit = false;
   List<Product>? _products;
   Product? _currentProduct;
   final List<CartProduct> _cart = [];
@@ -60,5 +61,7 @@ class AppState extends ChangeNotifier {
 
   void appInit() {
     fetchProducts();
+    isAppInit = true;
+    notifyListeners();
   }
 }

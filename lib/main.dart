@@ -26,7 +26,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppState appState = Provider.of<AppState>(context);
-    appState.appInit();
+    if(!appState.isAppInit) {
+      appState.appInit();
+    }
     return GetMaterialApp(
       defaultTransition: Transition.native,
       scrollBehavior: ScrollConfiguration.of(context).copyWith(
